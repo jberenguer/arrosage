@@ -2,10 +2,47 @@
 from tkinter import *   #importation de la bibliothèque tkinter
 
 def crud_action_0():
-    print("yes")
+    import mysql.connector as MC    #importation de mysqlconnector permettant d'établir une connexion entre la base de données MYSQL et Python 3
+    try:
+        conn = MC.connect(host = 'localhost', database = 'stephi_place_bd', user = 'root', password = '')    #on se connecte à la base de données
+        cursor = conn.cursor()  #création d'un curseur de connexion
+
+        window_1=Tk() #création de la fenêtre d'authentification
+        window_1.title("Arrose'ta plante !")   #caractéristiques de la fenêtre : nom, taille, couleur de fond, icone.
+        window_1.maxsize(1200, 600)
+        window_1.minsize(1200, 600)
+        window_1.configure(bg='#303030')
+
+        window_1.mainloop()
+
+    except MC.Error as err:
+        print(err)
+    finally:
+        if(conn.is_connected()):
+            cursor.close()
+            conn.close()
 
 def see_values_action_0():
-    print("non")
+    import mysql.connector as MC    #importation de mysqlconnector permettant d'établir une connexion entre la base de données MYSQL et Python 3
+    try:
+        conn = MC.connect(host = 'localhost', database = 'stephi_place_bd', user = 'root', password = '')    #on se connecte à la base de données
+        cursor = conn.cursor()  #création d'un curseur de connexion
+
+        window_2=Tk() #création de la fenêtre d'authentification
+        window_2.title("Arrose'ta plante !")   #caractéristiques de la fenêtre : nom, taille, couleur de fond, icone.
+        window_2.maxsize(1200, 600)
+        window_2.minsize(1200, 600)
+        window_2.configure(bg='#303030')
+
+        window_2.mainloop()
+
+    except MC.Error as err:
+        print(err)
+    finally:
+        if(conn.is_connected()):
+            cursor.close()
+            conn.close()
+
 
 window_0=Tk() #création de la fenêtre d'authentification
 window_0.title("Arrose'ta plante !")   #caractéristiques de la fenêtre : nom, taille, couleur de fond, icone.
